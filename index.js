@@ -6,18 +6,29 @@ const nestedTarget = function() {
   return document.getElementById('nested').querySelector('.target')
 }
 
-const increaseRankBy = function (n) {
-  const list = document.querySelectorAll('.ranked-list');
-    for (number of list) {
-      console.log(number)
-      parseInt(number) + 1
-    }
+
+const deepestChild = function() {
+  return  document.querySelector( '#grand-node div div div div' )
 }
 
 
-// const deepestChild = function() {
-//   let firstElement = document.getElementById('grand-node').querySelectorAll('div');
-//     for (const element of firstElement) {
-//       return textElement === 'boo!'
+function increaseRankBy( n ) {
+  const rankedLists = document.querySelectorAll( '.ranked-list' )
+
+  for ( let i = 0, l = rankedLists.length; i < l; i++ ) {
+    let children = rankedLists[ i ].children
+
+    for ( let j = 0, k = children.length; j < k; j++ ) {
+      children[ j ].innerHTML = parseInt( children[ j ].innerHTML ) + n
+    }
+  }
+}
+
+// *** - Works just as well - ***
+// function increaseRankBy(n) {
+//   let list = document.querySelectorAll('ul.ranked-list li');
+//
+//     for (const num of list) {
+//     num.innerText = parseInt(num.innerText) + n
 //     }
 // }
